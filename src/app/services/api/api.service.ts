@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { Members } from 'src/app/models/Members';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor() { }
+
+  getMembers() : Members[]{
+    return [
+      {firstName: 'Ahila', lastName: 'Chokkalingam', age:30, designation:'Senior Software Engineer', dob:'26-05-1995', maritalStatus:'Married', qualification:'BE'},
+      {firstName: 'Karthick', lastName: 'Nedunchelian', age:35, designation:'Happy Husband', dob:'17-01-1990', maritalStatus:'Married', qualification:'BE'},
+      {firstName: 'Nila', lastName: 'Karthick', age:2, designation:'Fun Lover', dob:'13-03-2023', maritalStatus:'Happily Single', qualification:'Yet to decide'},
+      {firstName: 'Nilan', lastName: 'Karthick', age:-0, designation:'Yet to identify', dob:'NA', maritalStatus:'NA', qualification:'NA'}
+    ]
+  }
+
+}

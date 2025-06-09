@@ -1,0 +1,26 @@
+
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>DOB</th>
+                <th>Designation</th>
+                <th>Qualification</th>
+                <th>Marital Status</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let member of familyMembers">
+                <td>{{member.firstName}}</td>
+                <td>{{member.lastName}}</td>
+                <td>{{member.age}}</td>
+                <td>{{member.dob}}</td>
+                <td>{{member.designation}}</td>
+                <td>{{member.qualification}}</td>
+                <td>{{member.maritalStatus}}</td>
+            </tr>
+        </tbody>      
+       
+      </table>
