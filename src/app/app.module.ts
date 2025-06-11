@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { SaveDeactivateGuard } from './services/guards/save.guard';
+import { UserResolver } from './resolver/userResolver.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,9 +26,10 @@ import { SaveDeactivateGuard } from './services/guards/save.guard';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [AuthService, AuthGuard, SaveDeactivateGuard],
+  providers: [AuthService, AuthGuard, SaveDeactivateGuard, UserResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

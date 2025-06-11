@@ -1,4 +1,4 @@
-export interface Members{
+export class Members{
     firstName?: string;
     lastName?: string;
     age?: number;

@@ -9,6 +9,7 @@ import { ChartComponent } from './chart/chart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { SaveDeactivateGuard } from './services/guards/save.guard';
+import { UserResolver } from './resolver/userResolver.service';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -17,7 +18,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     component: UsersComponent
   },
-  {path:'expense', component: ExpenseComponent, canDeactivate:[SaveDeactivateGuard]},
+  {path:'expense', component: ExpenseComponent, canDeactivate:[SaveDeactivateGuard], resolve: {UserResolver}},
   {path:'chart', component: ChartComponent},
   {path:'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: 'not-found'}

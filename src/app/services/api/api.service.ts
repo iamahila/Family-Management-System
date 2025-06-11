@@ -17,4 +17,13 @@ export class ApiService {
     ]
   }
 
+  getUser(id: number): Members{
+    if(id === 1){
+      return {firstName: 'Ahila', lastName: 'Chokkalingam', age:30, designation:'Senior Software Engineer', dob:'26-05-1995', maritalStatus:'Married', qualification:'BE'};
+    }
+    else{
+      return {firstName: 'Karthick', lastName: 'Nedunchelian', age:35, designation:'Happy Husband', dob:'17-01-1990', maritalStatus:'Married', qualification:'BE'};
+    }
+  }
+
 }
