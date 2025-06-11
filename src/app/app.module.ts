@@ -8,6 +8,10 @@ import { UsersComponent } from './users/users.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/guards/auth.guard';
+import { SaveDeactivateGuard } from './services/guards/save.guard';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard, SaveDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
