@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthGuard } from './services/guards/auth.guard';
 import { SaveDeactivateGuard } from './services/guards/save.guard';
 import { UserResolver } from './resolver/userResolver.service';
+import { ReactiveFormComponent } from './services/reactive-form/reactive-form.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   },
   {path:'expense', component: ExpenseComponent, canDeactivate:[SaveDeactivateGuard], resolve: {UserResolver}},
   {path:'chart', component: ChartComponent},
+  {path:'reactiveForm', component: ReactiveFormComponent},
   {path:'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: 'not-found'}
 ]

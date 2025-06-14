@@ -10,6 +10,7 @@ export class UsersComponent {
 
   @ViewChild('form') submitForm!: NgForm;
   @ViewChild('email') email!: ElementRef;
+  gender = 'female';
 
   ngOnInit(): void{
     console.log(this.email);

@@ -12,7 +12,8 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/guards/auth.guard';
 import { SaveDeactivateGuard } from './services/guards/save.guard';
 import { UserResolver } from './resolver/userResolver.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from './services/reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -22,12 +23,14 @@ import { FormsModule } from '@angular/forms';
     UsersComponent,
     ExpenseComponent,
     NavBarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AuthGuard, SaveDeactivateGuard, UserResolver],
   bootstrap: [AppComponent]
