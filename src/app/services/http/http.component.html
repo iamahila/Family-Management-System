@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="httpForm">
+                <div class="form-group mt-3">
+                    Title: <input type ="text" class="form-control" formControlName="title"/>
+                    <span *ngIf="httpForm.get('title')?.touched && titleRequired" class="text-danger">Title is required</span>
+                </div>
+                <div class="form-group mt-3">
+                    Content: <textarea class="form-control" formControlName="content"></textarea>
+                    <span *ngIf="httpForm.get('content')?.touched && contentRequired" class="text-danger">Content is required</span>
+                </div>
+                <div class="mt-3">
+                    <button (click)="onSubmit()" class="btn btn-primary">Post</button>
+                </div>
+            </form>
+        </div>
+
+       
+       
+        <div class="mt-3">
+            <a href="" (click)="clearPost($event)">Clear Post</a>
+           <table class="table table-striped">
+            <thead  class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of post">
+                    <td>{{p.title}}</td>
+                    <td>{{p.content}}</td>
+                </tr>
+            </tbody>
+           </table>
+        </div>
+
+
+    </div>
+</div>

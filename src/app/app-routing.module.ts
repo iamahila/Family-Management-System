@@ -11,6 +11,9 @@ import { AuthGuard } from './services/guards/auth.guard';
 import { SaveDeactivateGuard } from './services/guards/save.guard';
 import { UserResolver } from './resolver/userResolver.service';
 import { ReactiveFormComponent } from './services/reactive-form/reactive-form.component';
+import { FilterPipeComponent } from './services/filter-pipe/filter-pipe.component';
+import { HttpComponent } from './services/http/http.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -22,6 +25,9 @@ const appRoutes: Routes = [
   {path:'expense', component: ExpenseComponent, canDeactivate:[SaveDeactivateGuard], resolve: {UserResolver}},
   {path:'chart', component: ChartComponent},
   {path:'reactiveForm', component: ReactiveFormComponent},
+  {path:'http-ex', component: HttpComponent},
+  {path:'pipes', component: FilterPipeComponent},
+  {path:'auth', component: LoginComponent},
   {path:'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: 'not-found'}
 ]

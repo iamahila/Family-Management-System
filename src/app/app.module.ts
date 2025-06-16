@@ -14,6 +14,13 @@ import { SaveDeactivateGuard } from './services/guards/save.guard';
 import { UserResolver } from './resolver/userResolver.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './services/reactive-form/reactive-form.component';
+import { FilterPipeComponent } from './services/filter-pipe/filter-pipe.component';
+import { CustomPipe } from './services/custom.pipe';
+import { FilterPipe } from './services/filter.pipe';
+import { HttpComponent } from './services/http/http.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorImpl } from './services/api/http.interceptor';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -24,15 +31,22 @@ import { ReactiveFormComponent } from './services/reactive-form/reactive-form.co
     ExpenseComponent,
     NavBarComponent,
     PageNotFoundComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    FilterPipeComponent,
+    CustomPipe,
+    FilterPipe,
+    HttpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AuthService, AuthGuard, SaveDeactivateGuard, UserResolver],
+  providers: [AuthService, AuthGuard, SaveDeactivateGuard, UserResolver, 
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorImpl, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

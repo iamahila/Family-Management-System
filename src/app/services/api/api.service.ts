@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, resolveForwardRef } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 import { Members } from 'src/app/models/Members';
 
 @Injectable({
@@ -24,6 +25,18 @@ export class ApiService {
     else{
       return {firstName: 'Karthick', lastName: 'Nedunchelian', age:35, designation:'Happy Husband', dob:'17-01-1990', maritalStatus:'Married', qualification:'BE'};
     }
+  }
+
+  getEmail(email: string): Observable<string[]> {
+    let observer1 = new Observable<string[]>(observer =>{
+      const availableEmails = ['aaa@gmail.com', 'ahila@gmail.com'];
+      if(availableEmails.includes(email)){
+        observer.next(availableEmails);
+      }
+      observer.error('Empty values');
+    });
+
+    return observer1;
   }
 
 }
